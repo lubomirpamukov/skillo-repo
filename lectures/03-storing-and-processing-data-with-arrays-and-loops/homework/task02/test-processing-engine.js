@@ -95,7 +95,7 @@ console.log(calculateResponseTimes(TEST_RESPONSE_TIMES));
 /**
  * Solution 2.1.6
  * Function that mimics test execution and returns a string with test name and fail/pass value
- * @param {Array<object>} testCases 
+ * @param {Array<object>} testCases
  * @returns  {Array<string>} returns array with a value fail/pass value for each test
  */
 function simulateTestExecution(testCases) {
@@ -122,83 +122,118 @@ function simulateTestExecution(testCases) {
         --------------------------------------------------------    
         `
   );
-  return executionResults
+  return executionResults;
 }
 
-const TESTS = [{name: "test4"},{name: "test5"},{name: "test6"},{name: "test7"},{name: "test8"},{name: "test9"},{name: "test10"}]
-console.log(simulateTestExecution(TESTS))
+const TESTS = [
+  { name: "test4" },
+  { name: "test5" },
+  { name: "test6" },
+  { name: "test7" },
+  { name: "test8" },
+  { name: "test9" },
+  { name: "test10" },
+];
+console.log(simulateTestExecution(TESTS));
 
 /**
  * Solution 2.2.1
- * @param {string} testName 
+ * @param {string} testName
  * @returns {Array<boolean,number>} returns array with innformation [`testPassed`, `arrempt`]
  */
-function retryFailedTest (testName) {
-    let attempts = 0;
-    let maxRetries = 3;
-    let testPassed = false;
+function retryFailedTest(testName) {
+  let attempts = 0;
+  let maxRetries = 3;
+  let testPassed = false;
 
-    console.log(`-------------- Retry Failed Test -----------------------`)
-    while (attempts <= maxRetries && !testPassed) {
-        
-        if (attempts === 3) testPassed = true;
-        console.log(`Retry attempt ${attempts} for ${testName}: ${testPassed ? "PASS" : "FAIL"}`)
-        
-        attempts++;
-    }
-    console.log(`--------------------------------------------------------`)
-    if (testPassed) {
-        return  [testPassed, attempts]
-    } else return null
+  console.log(`-------------- Retry Failed Test -----------------------`);
+  while (attempts <= maxRetries && !testPassed) {
+    if (attempts === 3) testPassed = true;
+    console.log(
+      `Retry attempt ${attempts} for ${testName}: ${testPassed ? "PASS" : "FAIL"}`
+    );
+
+    attempts++;
+  }
+  console.log(`--------------------------------------------------------`);
+  if (testPassed) {
+    return [testPassed, attempts];
+  } else return null;
 }
 
-console.log(retryFailedTest("test1"))
+console.log(retryFailedTest("test1"));
 
 //2.2.2
 /**
  * Solution 2.2.2
- * @param {Array<string>} testQueue 
+ * @param {Array<string>} testQueue
  * @returns returns array with number of processed tests and array with the remaining unprocessed tests
  */
-function monitorTestQue (testQueue) {
-    let processedCount = 0;
-    let maxProcessingTime = 10;
-    let originalTestLength = testQueue.length
+function monitorTestQue(testQueue) {
+  let processedCount = 0;
+  let maxProcessingTime = 10;
+  let originalTestLength = testQueue.length;
 
-    console.log(`--------------- Monitor Test Que ----------------------------------------------------`)
-    while(testQueue.length > 0 && processedCount < maxProcessingTime) {
-        testQueue.pop();
-        processedCount ++;
-        console.log(`Processed test ${processedCount}, Queue remaining: ${testQueue.length}`);
-    }
-    console.log(`Total number of tests: ${originalTestLength}`)
-    console.log(`Processed tests: ${processedCount}`)
-    console.log(`Reason for stoping: ${testQueue.length === 0 ? "Test Queue empty" : "Time Limit Reached"}`)
-    console.log(`--------------------------------------------------------------------------------------`)
-    return [processedCount, testQueue]
+  console.log(
+    `--------------- Monitor Test Que ----------------------------------------------------`
+  );
+  while (testQueue.length > 0 && processedCount < maxProcessingTime) {
+    testQueue.pop();
+    processedCount++;
+    console.log(
+      `Processed test ${processedCount}, Queue remaining: ${testQueue.length}`
+    );
+  }
+  console.log(`Total number of tests: ${originalTestLength}`);
+  console.log(`Processed tests: ${processedCount}`);
+  console.log(
+    `Reason for stoping: ${testQueue.length === 0 ? "Test Queue empty" : "Time Limit Reached"}`
+  );
+  console.log(
+    `--------------------------------------------------------------------------------------`
+  );
+  return [processedCount, testQueue];
 }
 
-console.log(monitorTestQue(['test1','test2','test3','test1','test2','test3','test1','test2','test3','test1','test2','test3','test1','test2','test3',]))
+console.log(
+  monitorTestQue([
+    "test1",
+    "test2",
+    "test3",
+    "test1",
+    "test2",
+    "test3",
+    "test1",
+    "test2",
+    "test3",
+    "test1",
+    "test2",
+    "test3",
+    "test1",
+    "test2",
+    "test3",
+  ])
+);
 
 /**
  * Solution 2.2.3
- * @param {number} expectedDuration 
+ * @param {number} expectedDuration
  * @returns {Array<boolean, number>}
  */
-function waitForTestCompletion (expectedDuration) {
-    let elapsedTime = 0;
-    let testComplete = false;
+function waitForTestCompletion(expectedDuration) {
+  let elapsedTime = 0;
+  let testComplete = false;
 
-    console.log(`---------------Wait For Test Completion -----------------`)
-    while (!testComplete && elapsedTime < expectedDuration * 2) {
-        if (elapsedTime >= expectedDuration) testComplete = true;
-        console.log(`Waiting elapsed time: ${elapsedTime}`)
-        elapsedTime++;
-    }
-    console.log(`Test result: ${testComplete ? "Completed" : "Timeout"}`);
-    console.log(`---------------------------------------------------------`)
+  console.log(`---------------Wait For Test Completion -----------------`);
+  while (!testComplete && elapsedTime < expectedDuration * 2) {
+    if (elapsedTime >= expectedDuration) testComplete = true;
+    console.log(`Waiting elapsed time: ${elapsedTime}`);
+    elapsedTime++;
+  }
+  console.log(`Test result: ${testComplete ? "Completed" : "Timeout"}`);
+  console.log(`---------------------------------------------------------`);
 
-    return [testComplete,elapsedTime]
+  return [testComplete, elapsedTime];
 }
 
 console.log(waitForTestCompletion(10));
@@ -206,65 +241,77 @@ console.log(waitForTestCompletion(10));
 /**
  * Soulution 2.2.4
  * Functions that processes test results and return count of passed tests fail tests and sucess percentage.
- * @param {Array} testResults 
+ * @param {Array} testResults
  * @returns {Array<number>} returns array with [`passCount`, `failCount`, `successRate`]
  */
-function processTestResultsStream (testResults) {
-    let passCount = 0;
-    let failCount = 0;
-    let currentIndex = 0;
+function processTestResultsStream(testResults) {
+  let passCount = 0;
+  let failCount = 0;
+  let currentIndex = 0;
 
-    console.log(`-------- Process Test Results Stream -------------`)
-    while (currentIndex < testResults.length) {
-        let currentResult = testResults[currentIndex];
-        if (currentResult === "pass") {
-            passCount ++;
-        }else failCount++;
+  console.log(`-------- Process Test Results Stream -------------`);
+  while (currentIndex < testResults.length) {
+    let currentResult = testResults[currentIndex];
+    if (currentResult === "pass") {
+      passCount++;
+    } else failCount++;
 
-        console.log(`Processing result ${currentIndex + 1}: ${currentResult}`)
-        currentIndex++;
-    }
-    console.log(`--------------------------------------------------`)
+    console.log(`Processing result ${currentIndex + 1}: ${currentResult}`);
+    currentIndex++;
+  }
+  console.log(`--------------------------------------------------`);
 
-    let successRate = passCount / testResults.length * 100;
-    return [passCount, failCount, successRate]
+  let successRate = (passCount / testResults.length) * 100;
+  return [passCount, failCount, successRate];
 }
 
-console.log(processTestResultsStream(["pass", "pass", "fail","pass"]))
+console.log(processTestResultsStream(["pass", "pass", "fail", "pass"]));
 
 /**
  * Solution 2.3.1
  * Function that process array with for and while loop and compares performance
- * @param {Array} dataArray 
+ * @param {Array} dataArray
  * @returns {Array<number>} [`forProcessCount`, `whileProcessCount`]
  */
-function compareLoopApproaches (dataArray) {
-    console.log(`---------- Compare for loop vs while loop approaches ----------------`);
-    
-    let forProcessCount = 0;
-    console.log(`For Loop Starts`)
-    let forLoopStart = Date.now();
-    for (let i = 0; i < dataArray.length ; i ++) {
-        console.log(`For loop processed item number: ${forProcessCount++} => element data: ${dataArray[i]}`)
-    }
-    let forLoopEnd = Date.now()
+function compareLoopApproaches(dataArray) {
+  console.log(
+    `---------- Compare for loop vs while loop approaches ----------------`
+  );
 
-    console.log(`For loop processed ${forProcessCount} in ${forLoopEnd - forLoopStart}ms`)
-    console.log("For Loop ends")
-    console.log(`======================================================================`)
-    console.log(`While Loop starts`)
-    let index = 0;
-    let whileProcessCount = 0;
-    let whileLoopStart = Date.now();
-    while (index < dataArray.length) {
-        console.log(`While loop processed item number: ${whileProcessCount++} => element data ${dataArray[index]}`)
-        index++
-    }
-    let whileLoopEnd = Date.now()
-    console.log(`While loop processed ${whileProcessCount} in ${whileLoopEnd - whileLoopStart}ms`)
+  let forProcessCount = 0;
+  console.log(`For Loop Starts`);
+  let forLoopStart = Date.now();
+  for (let i = 0; i < dataArray.length; i++) {
+    console.log(
+      `For loop processed item number: ${forProcessCount++} => element data: ${dataArray[i]}`
+    );
+  }
+  let forLoopEnd = Date.now();
 
-    return [forProcessCount, whileProcessCount]
+  console.log(
+    `For loop processed ${forProcessCount} in ${forLoopEnd - forLoopStart}ms`
+  );
+  console.log("For Loop ends");
+  console.log(
+    `======================================================================`
+  );
+  console.log(`While Loop starts`);
+  let index = 0;
+  let whileProcessCount = 0;
+  let whileLoopStart = Date.now();
+  while (index < dataArray.length) {
+    console.log(
+      `While loop processed item number: ${whileProcessCount++} => element data ${dataArray[index]}`
+    );
+    index++;
+  }
+  let whileLoopEnd = Date.now();
+  console.log(
+    `While loop processed ${whileProcessCount} in ${whileLoopEnd - whileLoopStart}ms`
+  );
+
+  return [forProcessCount, whileProcessCount];
 }
 
-console.log(compareLoopApproaches([1,2,3,4,5,65,7]))
-
+console.log(compareLoopApproaches([1, 2, 3, 4, 5, 65, 7]));
+//saved
