@@ -2,8 +2,8 @@
  * Solution 1.1.3
  * @returns {Array}
  */
-function initializeTestData() {
-  let testUsers = [];
+export function initializeTestData() {
+  let testUsers = ["user1", "user2", "user3"];
   let testEnviorment = ["development", "staging", "production"];
   let browserTypes = ["Chrome", "Firefox", "Safari", "Edge"];
   console.log(
@@ -18,8 +18,8 @@ function initializeTestData() {
   return [testUsers, testEnviorment, browserTypes];
 }
 
-console.log(initializeTestData());
-const [testUsers, testEnviorment, browserTypes] = initializeTestData();
+//console.log(initializeTestData());
+//const [testUsers, testEnviorment, browserTypes] = initializeTestData();
 
 /**
  * Solution: 1.1.4
@@ -44,7 +44,7 @@ function displayTestDataInfo(testUsers, testEnviorment, browserTypes) {
   return testUsers.length + testEnviorment.length + browserTypes.length;
 }
 
-console.log(displayTestDataInfo(testUsers, testEnviorment, browserTypes));
+//console.log(displayTestDataInfo(testUsers, testEnviorment, browserTypes));
 
 /**
  * Solution 1.2.1
@@ -68,14 +68,13 @@ function addTestUsers(userArray, newUserEmail) {
   return userArray.length;
 }
 
-addTestUsers(["User1", "User1", "User1", "User2"]);
+//addTestUsers(["User1", "User1", "User1", "User2"]);
 
 /**
  * Solution 1.2.2
  * @returns {Array}
  */
-function buildTestQue() {
-  let testQue = [];
+export function buildTestQue(testQue) {
   console.log(`-------- Build Test Queue -----------`);
   testQue.push("login_test");
   console.log(`Added login_test, Queue length: ${testQue.length}`);
@@ -91,7 +90,7 @@ function buildTestQue() {
   return testQue;
 }
 
-console.log(buildTestQue());
+//console.log(buildTestQue());
 
 /**
  * Solution 1.2.3
@@ -110,7 +109,7 @@ function processTestQueue(testQueue) {
   return numberOfTests;
 }
 
-console.log(processTestQueue(["Test1", "Test1", "Test1"]));
+//console.log(processTestQueue(["Test1", "Test1", "Test1"]));
 
 /**
  * Solution 1.2.4
@@ -140,7 +139,7 @@ function manageTestResult() {
   return [passedTests, failedTests, skippedTests];
 }
 
-console.log(manageTestResult());
+//console.log(manageTestResult());
 
 /**
  * Solution 1.3.1
@@ -167,7 +166,7 @@ function rotateTestEnviroments(enviromentsArray) {
   return rotatedArray;
 }
 
-console.log(rotateTestEnviroments(["production", "staging", "development"]));
+//console.log(rotateTestEnviroments(["production", "staging", "development"]));
 
 /**
  * Solution 1.3.2
@@ -203,7 +202,7 @@ function validateTestDataIntegrity(testUsers, testEnviorments, browserTypes) {
   return validationIssues;
 }
 
-console.log(validateTestDataIntegrity(["test"], [], ["chrome"]));
+//console.log(validateTestDataIntegrity(["test"], [], ["chrome"]));
 
 /**
  * Solution 1.3.3
@@ -227,4 +226,4 @@ function generateTestReport (passedTests, failedTests, skippedTests) {
     return [totalTests, passedTests.length, failedTests.length, skippedTests.length]
 }
 
-console.log(generateTestReport(["test1", "test2"],["test3"],["test4"]))
+//console.log(generateTestReport(["test1", "test2"],["test3"],["test4"]))

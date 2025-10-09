@@ -6,7 +6,7 @@
  * @param {Array<number>} executionTimes
  * @returns {Array<Array>} [`criticalFailures`, `slowTests`, `quickPasses`]
  */
-function analyzeTestResults(testName, testResults, executionTimes) {
+export function analyzeTestResults(testName, testResults, executionTimes) {
   let criticalFailures = [];
   let slowTests = [];
   let quickPasses = [];
@@ -22,7 +22,7 @@ function analyzeTestResults(testName, testResults, executionTimes) {
         `Test ${currentTestName} with status: ${currentTestResult} is added to Critical Faliures.`
       );
       criticalFailures.push(currentTestName);
-    } else if (currentTestResult === "pass" && currentExecutionTime >= 2000) {
+    } else if (currentTestResult === "pass" && currentExecutionTime > 500) {
       console.log(
         `Test ${currentTestName} with status: ${currentTestResult} and execution time: ${currentExecutionTime} is added to Slow Tests.`
       );
@@ -39,13 +39,15 @@ function analyzeTestResults(testName, testResults, executionTimes) {
   return [criticalFailures, slowTests, quickPasses];
 }
 
-console.log(
-  analyzeTestResults(
-    ["test1_login", "test2", "test3"],
-    ["fail", "Pass", "Pass"],
-    [200, 500, 2000]
-  )
-);
+// console.log(
+//   analyzeTestResults(
+//     ["test1_login", "test2", "test3"],
+//     ["fail", "Pass", "Pass"],
+//     [200, 500, 2000]
+//   )
+// );
+
+
 /**
  * Solution 3.1.4
  * @param {Array<string>} testCases
@@ -74,12 +76,12 @@ function processTestEnviroments(testCases, enviroments) {
   return enviormentResults;
 }
 
-console.log(
-  processTestEnviroments(
-    ["test_case1", "test_case2"],
-    ["production", "staging"]
-  )
-);
+// console.log(
+//   processTestEnviroments(
+//     ["test_case1", "test_case2"],
+//     ["production", "staging"]
+//   )
+// );
 
 /**
  * Solution 3.1.5
@@ -140,13 +142,13 @@ function validateTestDataQuality(emails, passwords, ages) {
   return [validUsers, invalidUsers, fixableUsers];
 }
 
-console.log(
-  validateTestDataQuality(
-    ["email1@.com", "email2.com", "email3.com"],
-    ["password1234", "password123456", "password123478"],
-    [19, 29, 4]
-  )
-);
+// console.log(
+//   validateTestDataQuality(
+//     ["email1@.com", "email2.com", "email3.com"],
+//     ["password1234", "password123456", "password123478"],
+//     [19, 29, 4]
+//   )
+// );
 
 /**
  * Solution 3.2.1
@@ -186,12 +188,12 @@ function findFirstCriticalError(testResults, errorMessages) {
   return indexOfCriticalError;
 }
 
-console.log(
-  findFirstCriticalError(
-    ["pass", "pass", "fail"],
-    ["default_error1", "default_error2", "critical_error3"]
-  )
-);
+// console.log(
+//   findFirstCriticalError(
+//     ["pass", "pass", "fail"],
+//     ["default_error1", "default_error2", "critical_error3"]
+//   )
+// );
 
 /**
  * Solution 3.2.2
@@ -222,12 +224,12 @@ function processValidTestsOnly(testNames, testStatuses) {
   return processedTests;
 }
 
-console.log(
-  processValidTestsOnly(
-    ["testName1", "testName2", "testName3"],
-    ["valid", "invalid", "skip"]
-  )
-);
+// console.log(
+//   processValidTestsOnly(
+//     ["testName1", "testName2", "testName3"],
+//     ["valid", "invalid", "skip"]
+//   )
+// );
 
 /**
  * Solution 3.2.3
@@ -263,12 +265,12 @@ function monitorTestExecutionWithLimits(testQueue, maxFaliures) {
   return [processedCount, faliureCount, testQueue.length];
 }
 
-console.log(
-  monitorTestExecutionWithLimits(
-    ["test0", "test1", "test2", "test3", "test4", "test5", "test6", "test7"],
-    5
-  )
-);
+// console.log(
+//   monitorTestExecutionWithLimits(
+//     ["test0", "test1", "test2", "test3", "test4", "test5", "test6", "test7"],
+//     5
+//   )
+// );
 
 /**
  * Solution 3.3.1
@@ -340,15 +342,15 @@ function executeComprehensiveTestSuite(testCases, enviroments, userRoles) {
   return [passedResults, failedResults, skippedResults, criticalResults];
 }
 
-console.log(
-  executeComprehensiveTestSuite(
-    ["test_critical", "test_2"],
-    ["production", "staging", "development"],
-    ["admin", "developer"]
-  )
-);
+// console.log(
+//   executeComprehensiveTestSuite(
+//     ["test_critical", "test_2"],
+//     ["production", "staging", "development"],
+//     ["admin", "developer"]
+//   )
+// );
 
-function generateDetailedTestReport(
+export function generateDetailedTestReport(
   resultNames,
   resultStatuses,
   resultTimes,
@@ -409,4 +411,4 @@ const reportStatuses = [ "PASS", "FAIL", "PASS", "PASS", "FAIL", "PASS" ];
 const reportTimes = [ 100, 2500, 150, 4000, 2000, 2001 ];
 const reportEnvironments = [ "QA", "PROD", "QA", "STAGING", "PROD", "PROD" ];
 
-generateDetailedTestReport(reportNames, reportStatuses, reportTimes, reportEnvironments);
+//generateDetailedTestReport(reportNames, reportStatuses, reportTimes, reportEnvironments);

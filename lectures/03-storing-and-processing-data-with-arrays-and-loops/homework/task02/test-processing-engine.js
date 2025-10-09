@@ -4,31 +4,23 @@
  * @param {Array<Object>} testUsers a
  * @returns {number} number of processed users
  */
-function processAllTestUsers(testUsers) {
+export function processAllTestUsers(testUsers) {
   console.log(`------------ Process All Test Users ---------------`);
   for (let i = 0; i < testUsers.length; i++) {
     const currentUser = testUsers[i];
-    console.log(`Processing user ${i + 1} : ${currentUser.email}`);
+    console.log(`Processing user ${i + 1} : ${currentUser}`);
   }
   console.log(`Total users processed: ${testUsers.length}`);
   console.log(`---------------------------------------------------`);
   return testUsers.length;
 }
 const TEST_USERS = [
-  {
-    email: "test@mail.com",
-  },
-  {
-    email: "test2@mail.com",
-  },
-  {
-    email: "test3@mail.com",
-  },
-  {
-    email: "test4@mail.com",
-  },
+  "test@mail.com",
+  "test2@mail.com",
+  "test3@mail.com",
+  "test4@mail.com",
 ];
-console.log(processAllTestUsers(TEST_USERS));
+//console.log(processAllTestUsers(TEST_USERS));
 
 /**
  * Solution 2.1.4
@@ -63,7 +55,7 @@ const TEST_EMAILS = [
   "test4@mail.com",
 ];
 
-console.log(validateAllEmails(TEST_EMAILS));
+//console.log(validateAllEmails(TEST_EMAILS));
 
 /**
  * Solution 2.1.5
@@ -89,8 +81,8 @@ function calculateResponseTimes(responseTimesArray) {
   return [totalTime, avgTime, slowestTime];
 }
 
-const TEST_RESPONSE_TIMES = [123, 444, 566, 345, 2345];
-console.log(calculateResponseTimes(TEST_RESPONSE_TIMES));
+//const TEST_RESPONSE_TIMES = [123, 444, 566, 345, 2345];
+//console.log(calculateResponseTimes(TEST_RESPONSE_TIMES));
 
 /**
  * Solution 2.1.6
@@ -98,13 +90,13 @@ console.log(calculateResponseTimes(TEST_RESPONSE_TIMES));
  * @param {Array<object>} testCases
  * @returns  {Array<string>} returns array with a value fail/pass value for each test
  */
-function simulateTestExecution(testCases) {
+export function simulateTestExecution(testCases) {
   let executionResults = [];
 
   for (let i = 0; i < testCases.length; i++) {
     let currentTest = testCases[i];
     let isPassing = i % 3 === 0;
-    let result = `${currentTest.name}: ${isPassing ? "PASS" : "FAIL"}`;
+    let result = `${currentTest}: ${isPassing ? "PASS" : "FAIL"} | `;
     executionResults.push(result);
   }
 
@@ -116,7 +108,7 @@ function simulateTestExecution(testCases) {
   console.log(
     `
         -------------- Simulate Test Execution -----------------
-        Executed Tests: ${executionResults}
+        Executed Tests: ${executionResults.join("")}
         Test Passed: ${passCount}
         Test Failed: ${failCount}
         --------------------------------------------------------    
@@ -125,23 +117,15 @@ function simulateTestExecution(testCases) {
   return executionResults;
 }
 
-const TESTS = [
-  { name: "test4" },
-  { name: "test5" },
-  { name: "test6" },
-  { name: "test7" },
-  { name: "test8" },
-  { name: "test9" },
-  { name: "test10" },
-];
-console.log(simulateTestExecution(TESTS));
+//const TESTS = ["test4", "test5", "test6", "test7", "test8", "test9", "test10"];
+//console.log(simulateTestExecution(TESTS));
 
 /**
  * Solution 2.2.1
  * @param {string} testName
  * @returns {Array<boolean,number>} returns array with innformation [`testPassed`, `arrempt`]
  */
-function retryFailedTest(testName) {
+export function retryFailedTest(testName) {
   let attempts = 0;
   let maxRetries = 3;
   let testPassed = false;
@@ -150,7 +134,7 @@ function retryFailedTest(testName) {
   while (attempts <= maxRetries && !testPassed) {
     if (attempts === 3) testPassed = true;
     console.log(
-      `Retry attempt ${attempts} for ${testName}: ${testPassed ? "PASS" : "FAIL"}`
+      `Retry attempt ${attempts + 1} for ${testName}: ${testPassed ? "PASS" : "FAIL"}`
     );
 
     attempts++;
@@ -161,7 +145,7 @@ function retryFailedTest(testName) {
   } else return null;
 }
 
-console.log(retryFailedTest("test1"));
+//console.log(retryFailedTest("test1"));
 
 //2.2.2
 /**
@@ -195,25 +179,25 @@ function monitorTestQue(testQueue) {
   return [processedCount, testQueue];
 }
 
-console.log(
-  monitorTestQue([
-    "test1",
-    "test2",
-    "test3",
-    "test1",
-    "test2",
-    "test3",
-    "test1",
-    "test2",
-    "test3",
-    "test1",
-    "test2",
-    "test3",
-    "test1",
-    "test2",
-    "test3",
-  ])
-);
+// console.log(
+//   monitorTestQue([
+//     "test1",
+//     "test2",
+//     "test3",
+//     "test1",
+//     "test2",
+//     "test3",
+//     "test1",
+//     "test2",
+//     "test3",
+//     "test1",
+//     "test2",
+//     "test3",
+//     "test1",
+//     "test2",
+//     "test3",
+//   ])
+// );
 
 /**
  * Solution 2.2.3
@@ -236,7 +220,7 @@ function waitForTestCompletion(expectedDuration) {
   return [testComplete, elapsedTime];
 }
 
-console.log(waitForTestCompletion(10));
+//console.log(waitForTestCompletion(10));
 
 /**
  * Soulution 2.2.4
@@ -265,7 +249,7 @@ function processTestResultsStream(testResults) {
   return [passCount, failCount, successRate];
 }
 
-console.log(processTestResultsStream(["pass", "pass", "fail", "pass"]));
+//console.log(processTestResultsStream(["pass", "pass", "fail", "pass"]));
 
 /**
  * Solution 2.3.1
@@ -313,5 +297,5 @@ function compareLoopApproaches(dataArray) {
   return [forProcessCount, whileProcessCount];
 }
 
-console.log(compareLoopApproaches([1, 2, 3, 4, 5, 65, 7]));
+//console.log(compareLoopApproaches([1, 2, 3, 4, 5, 65, 7]));
 //saved
