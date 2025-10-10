@@ -13,9 +13,9 @@ function sortIndiciesByTime (names, times) {
     });
 };
 
-// console.log("======================= Sort Indexies By Time ================================");
-// console.log(sortIndiciesByTime(["login_test", "logout_test", "register_test"], [1000,2000,300]));
-// console.log(`==============================================================================`);
+console.log("======================= Sort Indexies By Time ================================");
+console.log(sortIndiciesByTime(["login_test", "logout_test", "register_test"], [1000,2000,300]));
+console.log(`==============================================================================`);
 
 /**
  * Solution 4.4
@@ -29,9 +29,9 @@ function sortByNamesLength (names) {
     })
 }
 
-// console.log(`====================== Sort By Names Length =======================`);
-// console.log(sortByNamesLength(["login_test", "logout_test", "registration_test"]));
-// console.log(`===================================================================`);
+console.log(`====================== Sort By Names Length =======================`);
+console.log(sortByNamesLength(["login_test", "logout_test", "registration_test"]));
+console.log(`===================================================================`);
 
 /**
  * Solution 4.5
@@ -51,9 +51,9 @@ function sortByPriority (priorities) {
     })
 }
 
-// console.log(`================= Sort By Priority ====================`);
-// console.log(sortByPriority(["HIGH", "HIGH", "LOW", "MEDIUM"]));
-// console.log(`=======================================================`);
+console.log(`================= Sort By Priority ====================`);
+console.log(sortByPriority(["HIGH", "HIGH", "LOW", "MEDIUM"]));
+console.log(`=======================================================`);
 
 /**
  * Solution 4.6
