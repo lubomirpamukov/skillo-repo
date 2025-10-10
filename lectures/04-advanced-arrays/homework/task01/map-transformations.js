@@ -1,0 +1,3 @@
+function buildVisualStatuses (results) {
+    
+}
