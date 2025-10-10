@@ -12,8 +12,9 @@ function buildVisualStatuses (results) {
 
     return result
 }
-
-//console.log(buildVisualStatuses(["PASS", "FAIL"])); 
+console.log("=============== Build Visual Statuses =================")
+console.log(buildVisualStatuses(["PASS", "FAIL"])); 
+console.log("=======================================================")
 /**
  * Solution 1.4
  * @param {Array<number>} times [11,22,33,44]
@@ -25,7 +26,9 @@ function formatExecutionTimes (times) {
     })
 }
 
-//console.log(formatExecutionTimes([11,22,33,44]))
+console.log("=============== Format Execution Times ================")
+console.log(formatExecutionTimes([11,22,33,44]))
+console.log("=======================================================")
 
 /**
  * Solution 1.5
@@ -40,7 +43,9 @@ function generateTestEmails (ids) {
     })
 }
 
-//console.log(generateTestEmails([1,2,3]))
+console.log("=============== Generate Test Emails ==================")
+console.log(generateTestEmails([1,2,3]))
+console.log("=======================================================")
 
 /**
  * Solution 1.6
@@ -57,5 +62,7 @@ function ratePerformance (times) {
     })
 }
 
-//console.log(ratePerformance([299,300,301,999,1000,1001]))
+console.log("=============== Rate Performance ======================")
+console.log(ratePerformance([299,300,301,999,1000,1001]))
+console.log("=======================================================")
 
