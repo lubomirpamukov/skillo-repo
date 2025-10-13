@@ -4,14 +4,14 @@
  * @param {Array} row 
  * @returns {string} summary string
  */
-function readTestRoad (row) {
+export function readTestRoad (row) {
     const [name,status,time,priority] = row;
     return `summary: ${status} ${name} (${time}ms) - ${priority}`;
 };
 
-console.log(`============== Read Test Road ==================`);
-console.log(readTestRoad(["login_test", "FAIL", 450, "HIGH"]));
-console.log(`================================================`);
+// console.log(`============== Read Test Road ==================`);
+// console.log(readTestRoad(["login_test", "FAIL", 450, "HIGH"]));
+// console.log(`================================================`);
 
 /**
  * Solution 5.4
@@ -24,9 +24,9 @@ function extractFirstLast (tests) {
     return [first, last];
 };
 
-console.log(`=============== Extract First Last =================`);
-console.log(extractFirstLast([1,3,2,5,4]));
-console.log(`====================================================`);
+// console.log(`=============== Extract First Last =================`);
+// console.log(extractFirstLast([1,3,2,5,4]));
+// console.log(`====================================================`);
 
 /**
  * Solution 5.5
@@ -34,7 +34,7 @@ console.log(`====================================================`);
  * @param {Array<Array>} tests [ ["alpha", "PASS", 1450, "MEDIUM"] ]
  * @returns {Array<string>} name of passing tests with time under 500 ms
  */
-function quickPassedAlphabetical (tests) {
+export function quickPassedAlphabetical (tests) {
     return tests.filter(function(test) {
         const [ ,status,time] = test;
         if (status === "PASS" && time < 500) return test
@@ -51,6 +51,6 @@ const TESTS = [
 
 ];
 
-console.log(`============= Quick Passed Alphabetical tests ===================`);
-console.log(quickPassedAlphabetical(TESTS));
-console.log(`=================================================================`)
+// console.log(`============= Quick Passed Alphabetical tests ===================`);
+// console.log(quickPassedAlphabetical(TESTS));
+// console.log(`=================================================================`)
