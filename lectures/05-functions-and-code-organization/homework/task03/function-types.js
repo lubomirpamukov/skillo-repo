@@ -17,7 +17,7 @@ console.log(
   formatTestResultExpression("logout", "FAIL")
 );
 
-const formatTestResultArrow = (testName, status) => {
+export const formatTestResultArrow = (testName, status) => {
   let icon = status === "PASS" ? "✅" : "❌";
   return `${icon} ${testName} ${status}`;
 };
@@ -48,12 +48,12 @@ console.log(
   calculateAverageExpression([1, 2, 3])
 );
 
-const calculateAverageArrow = (numbers) => {
+export const calculateAverageArrow = (numbers) => {
   let sum = numbers.reduce((sum, cur) => sum + cur);
   return sum / numbers.length;
 };
 
 console.log(
   "Calculate Average function arrow:",
-  calculateAverageExpression([1, 2, 3])
+  calculateAverageArrow([1, 2, 3])
 );
