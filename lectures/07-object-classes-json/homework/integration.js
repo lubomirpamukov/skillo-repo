@@ -1,10 +1,10 @@
-import { TestUser, TestCase } from "../task02/task-02-classes.js";
+import { TestUser, TestCase } from "./task02/task-02-classes.js";
 import {
   getFailedTests,
   getHighPriorityNames,
   getTotalDuration,
-} from "../task01/task-01-objects.js";
-import { toJson } from "../task03/task-03-json.js";
+} from "./task01/task-01-objects.js";
+import { toJson } from "./task03/task-03-json.js";
 
 const users = [
   new TestUser("bomani", "bomani@abv.bg", "supersecurePass123", "admin", false),
