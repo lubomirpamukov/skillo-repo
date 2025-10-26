@@ -83,27 +83,26 @@ const testCases = [
   },
 ];
 
-function getFailedTests(cases) {
+export function getFailedTests(cases) {
   return cases.filter((test) => {
     return test.status === "FAIL";
   });
 }
 
-console.log("getFailedTests result: ",getFailedTests(testCases))
+//console.log("getFailedTests result: ", getFailedTests(testCases));
 
-function getHighPriorityNames(cases) {
+export function getHighPriorityNames(cases) {
   return cases
     .filter((testCases) => testCases.priority === "high")
     .map((testCases) => testCases.name);
 }
 
-console.log("getHighPriorityNames result: ",getHighPriorityNames(testCases));
+//console.log("getHighPriorityNames result: ", getHighPriorityNames(testCases));
 
-function getTotalDuration(cases) {
-    return cases
-        .reduce((acc,currentCase) => {
-            return acc + currentCase.duration
-        }, 0)
+export function getTotalDuration(cases) {
+  return cases.reduce((acc, currentCase) => {
+    return acc + currentCase.duration;
+  }, 0);
 }
 
-console.log("getTotalDuration result: ",getTotalDuration(testCases))
+//console.log("getTotalDuration result: ", getTotalDuration(testCases));

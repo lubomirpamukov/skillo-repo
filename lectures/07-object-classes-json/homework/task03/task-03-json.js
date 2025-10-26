@@ -39,25 +39,25 @@ const caseList = [
   },
 ];
 
-function toJson(value) {
-    return JSON.stringify(value)
+export function toJson(value) {
+  return JSON.stringify(value);
 }
 
 function fromJson(jsonString) {
-    return JSON.parse(jsonString)
+  return JSON.parse(jsonString);
 }
 
-let testUserJson = toJson(testUser1)
+// let testUserJson = toJson(testUser1);
 
-console.log(typeof testUser1)
-console.log(testUser1);
-console.log("---------------------------------")
-console.log(typeof testUserJson)
-console.log(testUserJson)
-console.log("-------------------------------")
+// console.log(typeof testUser1);
+// console.log(testUser1);
+// console.log("---------------------------------");
+// console.log(typeof testUserJson);
+// console.log(testUserJson);
+// console.log("-------------------------------");
 
-let backToObject = fromJson(testUserJson)
+// let backToObject = fromJson(testUserJson);
 
-console.log(typeof backToObject)
-console.log(backToObject)
-console.log(backToObject.username)
+// console.log(typeof backToObject);
+// console.log(backToObject);
+// console.log(backToObject.username);
